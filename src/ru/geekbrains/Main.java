@@ -6,6 +6,7 @@ public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
     public static int sum2 = 1;
+    public static int sum3 = 1;
     public static void main(String[] args) {
         int repeatQuestion = 1;
         here:
@@ -16,6 +17,8 @@ public class Main {
             System.out.println(WithoutRecursive(a,b));
             System.out.println(Recursive(a,b));
             sum2 = 1;
+            System.out.println(EvenDegreeRecursive(a,b));
+            sum3 = 1;
             System.out.println("");
             System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
             repeatQuestion = scanner.nextInt();
@@ -34,5 +37,18 @@ public class Main {
             Recursive(a,b-1);
         }else return sum2;
         return sum2;
+    }
+    public static int EvenDegreeRecursive(int a, int b) {
+        if (b >= 2){
+            sum3 = a;
+            if (b%2==0){
+                sum3 = sum3*sum3;
+                EvenDegreeRecursive(sum3,b/2);
+            }else{
+                sum3 = sum3*sum3;
+                EvenDegreeRecursive(sum3,b/2);
+            }
+        }else return sum3;
+        return sum3;
     }
 }
