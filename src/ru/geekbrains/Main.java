@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
+    public static int sum2 = 1;
     public static void main(String[] args) {
         int repeatQuestion = 1;
         here:
@@ -13,6 +14,8 @@ public class Main {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
             System.out.println(WithoutRecursive(a,b));
+            System.out.println(Recursive(a,b));
+            sum2 = 1;
             System.out.println("");
             System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
             repeatQuestion = scanner.nextInt();
@@ -24,5 +27,12 @@ public class Main {
         int sum = 1;
         for (int i = b; i > 0 ; i--) sum = sum*a;
         return sum;
+    }
+    public static int Recursive(int a, int b) {
+        if (b > 0){
+            sum2 = sum2*a;
+            Recursive(a,b-1);
+        }else return sum2;
+        return sum2;
     }
 }
