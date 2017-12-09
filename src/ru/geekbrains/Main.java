@@ -14,12 +14,11 @@ public class Main {
         while (repeatQuestion != 0) {
             System.out.println("Последовательно через Enter введите число и его степень:");
             int a = scanner.nextInt();
-            temp = a;
             int b = scanner.nextInt();
             System.out.println(WithoutRecursive(a,b));
             System.out.println(Recursive(a,b));
             sum2 = 1;
-            System.out.println(EvenDegreeRecursive(a,b));
+            System.out.println(EvenDegreeRecursive(a,b)*temp);
             sum3 = 1;
             temp = 1;
             System.out.println("");
@@ -42,14 +41,14 @@ public class Main {
         return sum2;
     }
     public static int EvenDegreeRecursive(int a, int b) {
-        if (b >= 2){
+        if (b > 1){
             sum3 = a;
             if (b%2==0){
                 sum3 = sum3*sum3;
                 EvenDegreeRecursive(sum3,b/2);
             }else{
-                sum3 = sum3*sum3*temp;
-                EvenDegreeRecursive(sum3,(b-1)/2);
+                temp = temp*sum3;
+                EvenDegreeRecursive(sum3,b-1);
             }
         }else return sum3;
         return sum3;
